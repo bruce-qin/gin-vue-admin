@@ -13,13 +13,13 @@
     >
       <el-table-column label="角色id" min-width="180" prop="authorityId"></el-table-column>
       <el-table-column label="角色名称" min-width="180" prop="authorityName"></el-table-column>
-      <el-table-column fixed="right" label="操作" min-width="300">
+      <el-table-column fixed="right" label="操作" width="460">
         <template slot-scope="scope">
-          <el-button @click="opdendrawer(scope.row)" size="small" type="text">设置权限</el-button>
-          <el-button @click="addAuthority(scope.row.authorityId)" size="small" type="text">新增子角色</el-button>
-          <el-button @click="copyAuthority(scope.row)" size="small" type="text">拷贝角色</el-button>
-          <el-button @click="editAuthority(scope.row)" size="small" type="text">编辑角色</el-button>
-          <el-button @click="deleteAuth(scope.row)" size="small" type="text">删除角色</el-button>
+          <el-button @click="opdendrawer(scope.row)" size="small" type="primary">设置权限</el-button>
+          <el-button @click="addAuthority(scope.row.authorityId)" size="small" type="primary" icon="el-icon-plus">新增子角色</el-button>
+          <el-button @click="copyAuthority(scope.row)" size="small" type="primary" icon="el-icon-copy-document" >拷贝</el-button>
+          <el-button @click="editAuthority(scope.row)" size="small" type="primary" icon="el-icon-edit">编辑</el-button>
+          <el-button @click="deleteAuth(scope.row)" size="small" type="danger" icon="el-icon-delete">删除</el-button>
 
         </template>
       </el-table-column>
@@ -287,6 +287,7 @@ export default {
     },
     // 增加角色
     addAuthority(parentId) {
+      this.initForm()
       this.dialogTitle = "新增角色"
       this.dialogType = "add"
       this.form.parentId = parentId

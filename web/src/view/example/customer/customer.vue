@@ -22,7 +22,7 @@
       <el-table-column label="姓名" prop="customerName" width="120"></el-table-column>
       <el-table-column label="电话" prop="customerPhoneData" width="120"></el-table-column>
       <el-table-column label="接入人ID" prop="sysUserId" width="120"></el-table-column>
-      <el-table-column label="按钮组">
+      <el-table-column label="按钮组" min-width="160">
         <template slot-scope="scope">
           <el-button @click="updateCustomer(scope.row)" size="small" type="text">变更</el-button>
           <el-popover placement="top" width="160" v-model="scope.row.visible">
@@ -31,7 +31,7 @@
               <el-button size="mini" type="text" @click="scope.row.visible = false">取消</el-button>
               <el-button type="primary" size="mini" @click="deleteCustomer(scope.row)">确定</el-button>
             </div>
-            <el-button type="text" size="mini" slot="reference">删除</el-button>
+            <el-button type="danger" icon="el-icon-delete" size="mini" slot="reference">删除</el-button>
           </el-popover>
         </template>
       </el-table-column>
